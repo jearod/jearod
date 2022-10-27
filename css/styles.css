@@ -1,12 +1,123 @@
-.tittle{
-    color:hotpink;
-    width:310px;height:50px;
-    background-color:teal
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Trispace:wght@300&display=swap');
+
+
+body{
+    font-family: 'Cinzel', serif;
+    color:#fff;
+    background-image:url("../assets/world.jpg")
 }
-#pet-selection{
+
+#warrior-section{
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center
 }
 
+.tittle{
+    color:#FFF323;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 64px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    text-shadow: 
+    -1px -1px 0px #000,
+     0px -1px 0px #000,
+     1px -1px 0px #000,
+    -1px  0px 0px #000,
+     1px  0px 0px #000,
+    -1px  1px 0px #000,
+     0px  1px 0px #000,
+     1px  1px 0px #000;
+}
+.subtittle{
+    color:#FFCA03;
+    font-family: 'Trispace', sans-serif;
+    font-size: 48px;
+    margin: 10px;
+    background-color: lightsteelblue;
+    text-shadow: 
+    -1px -1px 0px #000,
+     0px -1px 0px #000,
+     1px -1px 0px #000,
+    -1px  0px 0px #000,
+     1px  0px 0px #000,
+    -1px  1px 0px #000,
+     0px  1px 0px #000,
+     1px  1px 0px #000;
+}
+
+.labels1{
+    display:flex;
+    gap: 100px;
+    margin: 10px;
+    justify-content: space-around;
+
+}
+
+.labels2{
+    display: flex;
+    gap: 100px;
+    margin: 20px;
+    justify-content: space-evenly;
+}
+
+.label-of-warrior{
+    width:340px;
+    height:420px;
+    background:#000000;
+    padding:10px;
+    box-sizing:border-box;
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff
+
+}
+
+.label-of-warrior img{
+    width:250px;
+    height:400px;
+}
+
+#button-select{
+    width: 240px;
+    height: 50px;
+    font-family: 'Trispace', sans-serif;
+    font-size: 42px;
+    border-radius: 25px;
+    background-color: navy;
+    color: cornflowerblue;
+    font-weight: bolder;
+    text-shadow: 
+    -1px -1px 0px #000,
+     0px -1px 0px #000,
+     1px -1px 0px #000,
+    -1px  0px 0px #000,
+     1px  0px 0px #000,
+    -1px  1px 0px #000,
+     0px  1px 0px #000,
+     1px  1px 0px #000;
+}
+
+#attack-section{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center
+}
+
+.labels3{
+    display: flex;
+    gap: 100px;
+    margin: 20px;
+    justify-content: space-evenly;
+}
+
+input {
+    display: none;
+}
