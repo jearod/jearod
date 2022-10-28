@@ -1,14 +1,16 @@
 //global variables
 let playerAttack
 let enemyAttack
-let playerLifes
-let enemyLifes
+let playerHealth
+let enemyHealth
 let warriorFlag
 let fight
 let attacks
 let playerWarrior
 let enemyWarrior
-
+let warriorsIds = ['druid','deathknight','mague','priest','warlock','rogue']
+let warriorNames = { druid: "Druid 🌱🌱💧", deathknight: "Death Knight 🔥🔥💧", mague: "Mague 💧💧🔥", priest: "Priest 💧💧🌱", warlock: "Warlock 🔥🔥🌱", rogue: "Rogue 🌱🌱🔥"}
+let warriorName = { druid: "Druid", deathknight: "Death Knight", mague: "Mague", priest: "Priest", warlock: "Warlock", rogue: "Rogue"}
 
 function initiateGame(){
 
@@ -24,6 +26,7 @@ function initiateGame(){
 
     //reload
     document.getElementById('button-reset').style.display = 'none'
+    document.getElementById('button-reset').disabled = true
     document.getElementById('button-reset').addEventListener('click', restartGame)
 
     document.getElementById("attack-section").style.display = 'none'
@@ -34,14 +37,14 @@ function rand(min, max) {
 }
 
 function selectWarriorPlayer(){
-    let warriorsIds = ['druid','death knight','mague','priest','warlock','rogue']
+    
     enemyWarrior = warriorsIds[rand(0,5)]
-    playerLifes = 5
-    enemyLifes = 5
+    playerHealth = 100
+    enemyHealth = 100
     
     if (enemyWarrior == 'druid'){
         attacks = ['WATER💧','EARTH🌱']
-    } else if (enemyWarrior == 'death knight'){
+    } else if (enemyWarrior == 'deathknight'){
         attacks = ['FIRE🔥','WATER💧']
     } else if (enemyWarrior == 'mague'){
         attacks = ['FIRE🔥','WATER💧']
@@ -56,32 +59,43 @@ function selectWarriorPlayer(){
     
     for (let warrior of warriorsIds){
         if ( document.getElementById(warrior).checked == true){
-                alert("you have selected "+  warrior.charAt(0).toUpperCase() + warrior.slice(1))
-            document.getElementById("warrior-player").innerHTML = warrior.charAt(0).toUpperCase() + warrior.slice(1)
             playerWarrior = warrior
-                alert("Enemy has selected "+ enemyWarrior.charAt(0).toUpperCase() + enemyWarrior.slice(1))
+            
+            alert("you have selected "+  warriorNames[playerWarrior])
+            document.getElementById("warrior-player").innerHTML = warriorNames[playerWarrior]
+            document.getElementById("image-player").src = "assets/"+playerWarrior+".jpg"
+            document.getElementById("health-player").innerHTML = playerHealth
+
+            alert("Enemy has selected "+ warriorNames[enemyWarrior])
+            document.getElementById("image-enemy").src = "assets/"+enemyWarrior+".jpg"
+            document.getElementById("warrior-enemy").innerHTML = warriorNames[enemyWarrior]
+            document.getElementById("health-enemy").innerHTML = enemyHealth
+
             document.getElementById("warrior-section").style.display = 'none'
             document.getElementById("attack-section").style.display = 'flex'
-            document.getElementById("warrior-enemy").innerHTML = enemyWarrior.charAt(0).toUpperCase() + enemyWarrior.slice(1)
-            document.getElementById('button-select').disabled = true
-            document.getElementById("lifes-player").innerHTML = playerLifes
-            document.getElementById("lifes-enemy").innerHTML = enemyLifes
+            document.getElementById('button-select').disabled = true        
             document.getElementById("subtittle2").style.color = "#F90716"
-            
+            document.getElementById("subtittle2").style.backgroundColor = 'revert'
             
 
             warriorFlag = 0
             if (warrior == 'druid'){
+                document.getElementById('button-fire').style.display = 'none'
                 document.getElementById('button-fire').disabled = true
-            } else if (warrior == 'death knight'){
+            } else if (warrior == 'deathknight'){
+                document.getElementById('button-earth').style.display = 'none'
                 document.getElementById('button-earth').disabled = true
             } else if (warrior == 'mague'){
+                document.getElementById('button-earth').style.display = 'none'
                 document.getElementById('button-earth').disabled = true
             } else if (warrior == 'priest'){
+                document.getElementById('button-fire').style.display = 'none'
                 document.getElementById('button-fire').disabled = true
             } else if (warrior == 'warlock'){
+                document.getElementById('button-water').style.display = 'none'
                 document.getElementById('button-water').disabled = true
             } else if (warrior == 'rogue'){
+                document.getElementById('button-water').style.display = 'none'
                 document.getElementById('button-water').disabled = true
             }
             break
@@ -130,82 +144,92 @@ function enemyAttackAction(){
 
 function combat(){
 
-    if ( playerLifes == null ){
+    if ( playerHealth == null ){
         alert("Please select a Warrior")
         document.getElementById("attack-player").innerHTML = ''
         document.getElementById("attack-enemy").innerHTML = ''
     } else if (playerWarrior == enemyWarrior && playerAttack == enemyAttack) {
-        document.getElementById("lifes-player").innerHTML = playerLifes
-        document.getElementById("lifes-enemy").innerHTML = enemyLifes
+        document.getElementById("health-player").innerHTML = playerHealth
+        document.getElementById("health-enemy").innerHTML = enemyHealth
         fight = 'Draw'
     }  else if (playerAttack == enemyAttack ){
         if ( (playerWarrior == 'druid' || playerWarrior == 'rogue' ) && (enemyWarrior == 'priest' || enemyWarrior == 'warlock') ) {
-            enemyLifes = enemyLifes - 1
-            fight = 'The enemy loses a life'
-            document.getElementById("lifes-enemy").innerHTML = enemyLifes
+            enemyHealth = enemyHealth -15
+            fight = 'The enemy loses 15% health'
+            document.getElementById("health-enemy").innerHTML = enemyHealth
         } else if ( (enemyWarrior == 'druid' || enemyWarrior == 'rogue' ) && (playerWarrior == 'priest' || playerWarrior == 'warlock') ) {
-            playerLifes = playerLifes - 1
-            fight = 'You lose a life'
-            document.getElementById("lifes-player").innerHTML = playerLifes
-        } else if ( (playerWarrior == 'death knight' || playerWarrior == 'warlock' ) && (enemyWarrior == 'mague' || enemyWarrior == 'rogue') ) {
-            enemyLifes = enemyLifes - 1
-            fight = 'The enemy loses a life'
-            document.getElementById("lifes-enemy").innerHTML = enemyLifes
-        } else if ( (enemyWarrior == 'death knight' || enemyWarrior == 'warlock' ) && (playerWarrior == 'mague' || playerWarrior == 'rogue') ) {
-            playerLifes = playerLifes - 1
-            fight = 'You lose a life'
-            document.getElementById("lifes-player").innerHTML = playerLifes
-        } else if ( (playerWarrior == 'mague' || playerWarrior == 'priest' ) && (enemyWarrior == 'druid' || enemyWarrior == 'death knight') ) {
-            enemyLifes = enemyLifes - 1
-            fight = 'The enemy loses a life'
-            document.getElementById("lifes-enemy").innerHTML = enemyLifes
-        } else if ( (enemyWarrior == 'mague' || enemyWarrior == 'priest' ) && (playerWarrior == 'druid' || playerWarrior == 'death knight') ) {
-            playerLifes = playerLifes - 1
-            fight = 'You lose a life'
-            document.getElementById("lifes-player").innerHTML = playerLifes
+            playerHealth = playerHealth -15
+            fight = 'You lose 15% health'
+            document.getElementById("health-player").innerHTML = playerHealth
+        } else if ( (playerWarrior == 'deathknight' || playerWarrior == 'warlock' ) && (enemyWarrior == 'mague' || enemyWarrior == 'rogue') ) {
+            enemyHealth = enemyHealth -15
+            fight = 'The enemy loses 15% health'
+            document.getElementById("health-enemy").innerHTML = enemyHealth
+        } else if ( (enemyWarrior == 'deathknight' || enemyWarrior == 'warlock' ) && (playerWarrior == 'mague' || playerWarrior == 'rogue') ) {
+            playerHealth = playerHealth -15
+            fight = 'You lose 15% health'
+            document.getElementById("health-player").innerHTML = playerHealth
+        } else if ( (playerWarrior == 'mague' || playerWarrior == 'priest' ) && (enemyWarrior == 'druid' || enemyWarrior == 'deathknight') ) {
+            enemyHealth = enemyHealth -15
+            fight = 'The enemy loses 15% health'
+            document.getElementById("health-enemy").innerHTML = enemyHealth
+        } else if ( (enemyWarrior == 'mague' || enemyWarrior == 'priest' ) && (playerWarrior == 'druid' || playerWarrior == 'deathknight') ) {
+            playerHealth = playerHealth -15
+            fight = 'You lose 15% health'
+            document.getElementById("health-player").innerHTML = playerHealth
         } else {
-            document.getElementById("lifes-player").innerHTML = playerLifes
-            document.getElementById("lifes-enemy").innerHTML = enemyLifes
+            document.getElementById("health-player").innerHTML = playerHealth
+            document.getElementById("health-enemy").innerHTML = enemyHealth
             fight = 'Draw'
         }
     } else if (playerAttack == 'WATER💧' && enemyAttack == "FIRE🔥"){
-        enemyLifes = enemyLifes - 1
-        fight = 'The enemy loses a life'
-        document.getElementById("lifes-enemy").innerHTML = enemyLifes   
+        enemyHealth = enemyHealth -15
+        fight = 'The enemy loses 15% health'
+        document.getElementById("health-enemy").innerHTML = enemyHealth   
     } else if (playerAttack == 'FIRE🔥' && enemyAttack == "EARTH🌱"){
-        enemyLifes = enemyLifes - 1
-        fight = 'The enemy loses a life'
-        document.getElementById("lifes-enemy").innerHTML = enemyLifes
+        enemyHealth = enemyHealth -15
+        fight = 'The enemy loses 15% health'
+        document.getElementById("health-enemy").innerHTML = enemyHealth
     } else if (playerAttack == 'EARTH🌱' && enemyAttack == "WATER💧"){
-        enemyLifes = enemyLifes - 1
-        fight = 'The enemy loses a life'
-        document.getElementById("lifes-enemy").innerHTML = enemyLifes
+        enemyHealth = enemyHealth -15
+        fight = 'The enemy loses 15% health'
+        document.getElementById("health-enemy").innerHTML = enemyHealth
     } else {
-        playerLifes = playerLifes - 1
-        fight = 'You lose a life'
-        document.getElementById("lifes-player").innerHTML = playerLifes
+        playerHealth = playerHealth -15
+        fight = 'You lose 15% health'
+        document.getElementById("health-player").innerHTML = playerHealth
     }
 }
 
 function createMessage(){
     let messagesSection = document.getElementById('messages')
     let paragraph = document.createElement("p")
-    paragraph.innerHTML = "Your warrior attacked with "+ playerAttack +". The enemy's warrior attacked with "+ enemyAttack +". "+ fight
+    paragraph.innerHTML = warriorName[playerWarrior]+" attacked with "+ playerAttack +". "+warriorName[enemyWarrior]+" attacked with "+ enemyAttack +". "+ fight
     messagesSection.appendChild(paragraph)
     
-    if (enemyLifes == 0){ 
+    if (enemyHealth < 0){ 
         alert("🎉🎉¡¡YOU WIN!!🎉🎉") 
+        document.getElementById('button-fire').style.display = 'none'
+        document.getElementById('button-water').style.display = 'none'
+        document.getElementById('button-earth').style.display = 'none'
         document.getElementById('button-fire').disabled = true
         document.getElementById('button-water').disabled = true
         document.getElementById('button-earth').disabled = true
         document.getElementById('button-reset').style.display = 'block'
+        document.getElementById('button-reset').disabled = false
+        document.getElementById("health-enemy").innerHTML = "0"
     } 
-    if (playerLifes == 0){ 
+    if (playerHealth < 0){ 
         alert("😞😞 YOU LOSE 😭😭") 
+        document.getElementById('button-fire').style.display = 'none'
+        document.getElementById('button-water').style.display = 'none'
+        document.getElementById('button-earth').style.display = 'none'
         document.getElementById('button-fire').disabled = true
         document.getElementById('button-water').disabled = true
         document.getElementById('button-earth').disabled = true
         document.getElementById('button-reset').style.display = 'block'
+        document.getElementById('button-reset').disabled = false
+        document.getElementById("health-player").innerHTML = "0"
     } 
 }
 
