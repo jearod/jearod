@@ -21,7 +21,7 @@ body{
     color:#FFF323;
     font-family: 'Cinzel Decorative', cursive;
     font-size: 64px;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 15px;
     text-shadow: 
     -1px -1px 0px #000,
@@ -50,26 +50,26 @@ body{
      1px  1px 0px #000;
 }
 
-.labels1{
+.warriorsTop{
     display:flex;
-    gap: 100px;
+    gap: 300px;
     margin: 10px;
     justify-content: space-around;
 
 }
 
-.labels2{
+.warriorsBottom{
     display: flex;
-    gap: 100px;
+    gap: 250px;
     margin: 20px;
     justify-content: space-evenly;
 }
 
 .label-of-warrior{
-    width:340px;
-    height:420px;
+    width:300px;
+    height:340px;
     background:#000000;
-    padding:10px;
+    padding:12px;
     box-sizing:border-box;
     border-radius:20px;
     display:flex;
@@ -80,18 +80,19 @@ body{
 }
 
 .label-of-warrior img{
-    width:250px;
-    height:400px;
+    width:210px;
+    height:320px;
+    border-radius:20px;
 }
 
 #button-select{
-    width: 240px;
+    width: 210px;
     height: 50px;
     font-family: 'Trispace', sans-serif;
     font-size: 42px;
     border-radius: 25px;
     background-color: navy;
-    color: cornflowerblue;
+    color: lawngreen;
     font-weight: bolder;
     text-shadow: 
     -1px -1px 0px #000,
@@ -111,11 +112,74 @@ body{
     align-items:center
 }
 
-.labels3{
+.warriorsCombat{
     display: flex;
     gap: 100px;
     margin: 20px;
     justify-content: space-evenly;
+}
+
+.attack-buttons-label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 340px;
+    gap: 20px;
+}
+
+.attackButtons{
+    font-family: 'Trispace', sans-serif;
+    font-size: 42px;
+    border-radius: 25px;
+    background-color: transparent;
+    color: azure;
+    font-weight: bolder;
+    text-shadow: 
+    -1px -1px 0px #000,
+     0px -1px 0px #000,
+     1px -1px 0px #000,
+    -1px  0px 0px #000,
+     1px  0px 0px #000,
+    -1px  1px 0px #000,
+     0px  1px 0px #000,
+     1px  1px 0px #000;
+}
+
+#button-fire{
+    color: tomato;
+}
+
+#button-water{
+    color: cyan;
+}
+
+#button-earth{
+    color: chartreuse;
+}
+.health{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 540px;
+    font-size: 32px;
+    height: 32px;
+    font-weight: bolder;
+    text-shadow: 
+    -1px -1px 0px #000,
+     0px -1px 0px #000,
+     1px -1px 0px #000,
+    -1px  0px 0px #000,
+     1px  0px 0px #000,
+    -1px  1px 0px #000,
+     0px  1px 0px #000,
+     1px  1px 0px #000;
+}
+
+#messages{
+    display: block;
+    flex-direction: column;
+    text-align: center;
+    font-weight: bolder;
 }
 
 input {
