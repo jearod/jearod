@@ -33,6 +33,7 @@ body{
      0px  1px 0px #000,
      1px  1px 0px #000;
 }
+
 .subtittle{
     color:#FFCA03;
     font-family: 'Trispace', sans-serif;
@@ -55,7 +56,6 @@ body{
     gap: 300px;
     margin: 10px;
     justify-content: space-around;
-
 }
 
 .warriorsBottom{
@@ -76,7 +76,6 @@ body{
     justify-content:center;
     align-items:center;
     color:#fff
-
 }
 
 .label-of-warrior img{
@@ -156,6 +155,7 @@ body{
 #button-earth{
     color: chartreuse;
 }
+
 .health{
     display: flex;
     justify-content: center;
