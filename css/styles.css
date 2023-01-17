@@ -8,6 +8,7 @@ body{
     font-family: 'Cinzel', serif;
     color:#fff;
     background-image:url("../assets/world.jpg")
+    
 }
 
 #warrior-section{
@@ -33,7 +34,6 @@ body{
      0px  1px 0px #000,
      1px  1px 0px #000;
 }
-
 .subtittle{
     color:#FFCA03;
     font-family: 'Trispace', sans-serif;
@@ -76,6 +76,7 @@ body{
     justify-content:center;
     align-items:center;
     color:#fff
+
 }
 
 .label-of-warrior img{
@@ -155,7 +156,6 @@ body{
 #button-earth{
     color: chartreuse;
 }
-
 .health{
     display: flex;
     justify-content: center;
@@ -184,4 +184,59 @@ body{
 
 input {
     display: none;
+}
+
+@media (max-width: 360px) {
+    body {
+        background-size: cover;
+    }
+    .tittle {
+        font-size: 15px;
+    }
+    .subtittle {
+        font-size: 15px;
+    }
+    .warriorsTop {
+        flex-direction: column;  
+        gap: 2px; 
+        margin: 1px;
+        font-size: 10px;
+    }
+    .warriorsBottom {
+        flex-direction: column;
+        gap: 2px;
+        margin: 1px;
+        font-size: 10px;
+    }
+    .label-of-warrior {
+        width: 170px;
+        height: 140px;
+    }
+    .label-of-warrior img {
+        width: 170px;
+        height: 130px;
+    }
+    #button-select {
+        width: 70px;
+        height: 20px;
+        font-size: 12px;
+    }
+    .warriorsCombat{
+        gap: 5px;
+    }
+    .attack-buttons-label {
+        height: 140px;
+        gap: 5px;
+    }
+    .attackButtons {
+        font-size: 10px;
+    }
+    .health {
+        gap: 90px;
+        font-size: 15px;
+        height: 25px;
+    }
+    #messages {
+        font-size: 10px;
+    }
 }
