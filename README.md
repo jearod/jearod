@@ -1,4 +1,5 @@
-# jearod.github.io
-#This is a project about a strategy game based on World of Warcraft games
-The game url can be found above:
-https://jearod.github.io/wow.html
+# jearod.github.io:
+
+# Under wowgame/ there is a project about an strategy game based on World of Warcraft game
+# The game url can be found above:
+https://jearod.github.io/wowgame/wow.html
