@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+		<title>WORLD OF WARRIORS!</title>
+								   
+        <link rel="stylesheet" href="./css/styles.css">
+	</head>
+	<body>
+        
+	    <section id="warrior-section">
+
+            <h1 class="tittle">🌱💧🔥 WORLD OF WARRIORS 🔥💧🌱</h1>
+            <h2 class="subtittle">Warrior Selection</h2>
+
+            <div class="warriorsTop">
+                <input type="radio" id="druid" name="warrior"/>
+                <label class="label-warrior" for="druid">
+                    Druid 🌱🌱💧<img src="./assets/druid.jpg" alt="Druid">
+                </label>           
+                
+                <input type="radio" id="deathknight" name="warrior"/>
+
+                <label class="label-warrior" for="deathknight">
+                    Death Knight 🔥🔥💧<img src="./assets/deathknight.jpg" alt="Death Knight">
+                </label>           
+                
+                <input type="radio" id="mague" name="warrior"/>
+
+                <label class="label-warrior" for="mague">
+                    Mague 💧💧🔥<img src="./assets/mague.jpg" alt="Mague">
+                </label>          
+                
+            </div>  
+              
+            <div class="warriorsBottom">
+                <input type="radio" id="priest" name="warrior"/>
+                <label class="label-warrior" for="priest">
+                    Priest 💧💧🌱<img src="./assets/priest.jpg" alt="Priest">
+                </label>
+                
+                <input type="radio" id="warlock" name="warrior"/>
+
+                <label class="label-warrior" for="warlock">
+                    Warlock 🔥🔥🌱<img src="./assets/warlock.jpg" alt="Warlock">
+                </label>
+                
+                <input type="radio" id="rogue" name="warrior"/>
+
+                <label class="label-warrior" for="rogue">
+                    Rogue 🌱🌱🔥<img src="./assets/rogue.jpg" alt="Rogue">
+                </label>
+												
+            </div>  
+
+            <button id="button-select">Select</button>
+        </section>
+
+
+        <section id="attack-section">
+
+            <h1 class="tittle">🌱💧🔥 WORLD OF WARRIORS 🔥💧🌱</h1>
+            <h2 class="subtittle" id="subtittle2">Attack Selection</h2>
+
+
+            <div class="warriorsCombat">
+                <label class="label-warrior">
+                    <span id="warrior-player"></span> <img id="image-player" alt="player">
+                </label>
+
+                <label class="label-warrior">
+                    <span id="warrior-enemy"></span> <img id="image-enemy" alt="enemy">       
+																					   
+																					   
+																					 
+                </label>
+
+												
+																				  
+						
+            </div>
+            
+             <div class="health">
+                <p>Health </span> <span id="health-player"></span> %</p>
+                <p>Health <span id="health-enemy"></span> %</p>
+            </div>
+            
+            <div class="attack-buttons-label">
+                <button class="attackButtons" id="button-water">Water 💧</button>
+                <button class="attackButtons" id="button-fire">Fire 🔥</button>
+                <button class="attackButtons" id="button-earth">Earth 🌱</button>
+                <button class="attackButtons" id="button-reset">New Game</button>
+            </div>
+
+            <label id="messages">
+
+            </label>
+
+        </section>
+
+
+		   
+
+        <script src="js/wow.js"></script>
+	</body>
+</html>
